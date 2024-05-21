@@ -3,22 +3,34 @@ from math import *
 #region Calculos
 
 def calcular_area_rectangulo(base, altura):
-    pass
+    area = base * altura
+    
+    return area
 
 def calcular_perimetro_rectangulo(base, altura):
-    pass
+    perimetro = (base + altura) * 2
+    
+    return perimetro
 
 def calcular_area_circulo(radio):
-    pass
+    area = pi * radio**2
+    
+    return area
 
 def calcular_perimetro_circulo(radio):
-    pass
+    perimetro = 2 * pi * radio
+    
+    return perimetro
 
 def calcular_area_triangulo_rectangulo(base, altura):
-    pass
+    area = (base * altura) / 2
+    
+    return area
 
 def calcular_perimetro_triangulo_rectangulo(base, altura):
-    pass
+    perimetro = sqrt(base**2 + altura**2)
+    
+    return perimetro
 
 
 #endregion

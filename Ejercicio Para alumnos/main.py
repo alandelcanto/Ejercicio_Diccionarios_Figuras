@@ -13,13 +13,27 @@ def inicio_programa():
                 match que_figura:
                     case "a":
                         system("cls")
-                        figura = {}
+                        radio = int(input("Ingrese el radio del círculo:\n"))
+                        figura = {"tipo_figura": "Circulo",
+                                "dimensiones": (radio,),
+                                "posicion": (1000/2 - radio/2, 850/2 - radio/2 - 100),
+                                "color": seleccionar_color("Ingrese el color del círculo: ")}
                     case "b":
                         system("cls")
-                        figura = {}
+                        base = int(input("Ingrese la base del rectángulo:\n"))
+                        altura = int(input("Ingrese la altura del rectángulo:\n"))
+                        figura = {"tipo_figura": "Rectangulo",
+                                "dimensiones": (base, altura),
+                                "posicion": (1000/2 - base/2, 850/2 - altura/2 - 100),
+                                "color": seleccionar_color("Ingrese el color del rectángulo: ")}
                     case "c":
                         system("cls")
-                        figura = {}
+                        base = int(input("Ingrese la base del triángulo:\n"))
+                        altura = int(input("Ingrese la altura del triángulo:\n"))
+                        figura = {"tipo_figura": "Triangulo",
+                                "dimensiones": (base, altura),
+                                "posicion": (1000/2 - base/2, 850/2 - altura/2 - 100),
+                                "color": seleccionar_color("Ingrese el color del triángulo: ")}
             case 2:
                 graficar(figura)
             case 3:

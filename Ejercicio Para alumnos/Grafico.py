@@ -14,24 +14,32 @@ colores = {"Blanco" : (255,255,255),
 #region Funciones para completar
 
 def seleccionar_color(mensaje):
-    #Desplegar en pantalla todos los colores. El usuario deberá seleccionar uno.
+    
     color_retorno = None
+    print("Lista de colores:\n")
+    for i in colores.keys():
+        print(i)
+    color = input("Ingrese el color:\n")
+    color_retorno = colores[color]
     return color_retorno
     
 def calcular_figura(figura:dict, ventana):
     perimetro = None
     area = None
-    que_figura = "None"
+    que_figura = figura["tipo_figura"]
     
     match que_figura:
         case "Circulo":
-            #COMPLETAR
+            perimetro = calcular_perimetro_circulo(figura["dimensiones"][0])
+            area = calcular_area_circulo(figura["dimensiones"][0])
             dibujar_circulo(ventana, figura)
         case "Rectangulo":
-            #COMPLETAR
+            perimetro = calcular_perimetro_rectangulo(figura["dimensiones"][0], figura["dimensiones"][1])
+            area = calcular_area_rectangulo(figura["dimensiones"][0], figura["dimensiones"][1])
             dibujar_rectangulo(ventana, figura)
         case "Triangulo":
-            #COMPLETAR
+            perimetro = calcular_perimetro_triangulo_rectangulo(figura["dimensiones"][0], figura["dimensiones"][1])
+            area = calcular_area_triangulo_rectangulo(figura["dimensiones"][0], figura["dimensiones"][1])
             dibujar_triangulo(ventana, figura)
     
     escribir_resultados(ventana, perimetro, area)
@@ -43,7 +51,7 @@ def graficar(figura):
 
     ventana_ppal = pygame.display.set_mode((1000,850))
     pygame.display.set_caption("FIGURAS")
-    imagen = pygame.image.load("matematica.jpg")
+    imagen = pygame.image.load("Ejercicios\TDA\Ejercicio_Diccionarios_Figuras\Ejercicio Para alumnos\matematica.jpg")
     imagen = pygame.transform.scale(imagen, (1000,850))
     ventana_ppal.blit(imagen,(0,0))
     calcular_figura(figura, ventana_ppal)
@@ -80,8 +88,8 @@ def escribir_resultados(ventana, perimetro, area):
     area_texto = f"Area: {area:0.2f} px"
     
     fuente = pygame.font.SysFont("consolas",60)
-    texto = fuente.render(perimetro_texto, False, VERDE,AZUL_CLARO)
+    texto = fuente.render(perimetro_texto, False, colores["Verde"],colores["Azul Claro"])
     ventana.blit(texto,(50,700))
-    texto = fuente.render(area_texto, False, VERDE,AZUL_CLARO)
+    texto = fuente.render(area_texto, False, colores["Verde"],colores["Azul Claro"])
     ventana.blit(texto,(50,750))
 #endregion 
